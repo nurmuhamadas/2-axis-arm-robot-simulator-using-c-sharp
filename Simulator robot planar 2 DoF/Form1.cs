@@ -38,7 +38,7 @@ namespace Simulator_robot_planar_2_DoF
             if ((double)numericUpDown1.Value + L2 > 5)
             {
                 // If exceeding the limit
-                MessageBox.Show("You're overreaching! Repent mmedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
+                MessageBox.Show("You're overreaching! Repent immedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
                 numericUpDown1.Value = (decimal)L1; // Cancel the change
             }
             else
@@ -55,7 +55,7 @@ namespace Simulator_robot_planar_2_DoF
             if ((double)numericUpDown2.Value + L1 > 5)
             {
                 // If exceeding the limit
-                MessageBox.Show("You're overreaching! Repent mmedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
+                MessageBox.Show("You're overreaching! Repent immedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
                 numericUpDown2.Value = (decimal)L2; // Cancel the change
             }
             else
@@ -109,7 +109,7 @@ namespace Simulator_robot_planar_2_DoF
             if ((double)numericUpDown8.Value + L2_inv > 5)
             {
                 // If exceeding the limit
-                MessageBox.Show("You're overreaching! Repent mmedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
+                MessageBox.Show("You're overreaching! Repent immedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
                 numericUpDown8.Value = (decimal)L1_inv; // Cancel the change
             }
             else
@@ -128,7 +128,7 @@ namespace Simulator_robot_planar_2_DoF
             if ((double)numericUpDown7.Value + L1_inv > 5)
             {
                 // If exceeding the limit
-                MessageBox.Show("You're overreaching! Repent mmedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
+                MessageBox.Show("You're overreaching! Repent immedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
                 numericUpDown8.Value = (decimal)L2_inv; // Cancel the change
             }
             else
@@ -147,7 +147,7 @@ namespace Simulator_robot_planar_2_DoF
             if (Math.Sqrt(Math.Pow((double)numericUpDown6.Value, 2) + Math.Pow(y2_inv, 2)) > L1_inv + L2_inv)
             {
                 // If exceeding the limit
-                MessageBox.Show("You're overreaching! Repent mmedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
+                MessageBox.Show("You're overreaching! Repent immedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
                 numericUpDown6.Value = (decimal)x2_inv; // Cancel the change
             }
             else
@@ -160,11 +160,11 @@ namespace Simulator_robot_planar_2_DoF
 
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
-            // Avoid the input exceeding the limit -->> The limit is distance of EoE with origin
+            // Avoid input exceeding the limit -->> The limit is distance of EoE with origin
             if (Math.Sqrt(Math.Pow((double)numericUpDown5.Value, 2) + Math.Pow(x2_inv, 2)) > L1_inv + L2_inv)
             {
                 // If exceeding the limit
-                MessageBox.Show("Anda melampaui batas! Segera bertobat", "SABAR!");  // Show the text box if the input exceeding the limit
+                MessageBox.Show("You're overreaching! Repent immedeately", "PATIENT PLEASE!");  // Show the text box if the input exceeding the limit
                 numericUpDown5.Value = (decimal)y2_inv; // Cancel the change
             }
             else
@@ -184,12 +184,14 @@ namespace Simulator_robot_planar_2_DoF
             // >>> The first probability of Teta (P1) <<<
             Teta2_inv1 = Math.Acos(round((xy - L1_inv * L1_inv - L2_inv * L2_inv) / (2 * L1_inv * L2_inv))) * 180 / Phi;    // Find Teta 2 using cosinus law
             Teta1_inv1 = Math.Atan(y2_inv / x2_inv) * 180 / Phi - Math.Atan(L2_inv * Math.Sin(Teta2_inv1 * Phi / 180) / (L1_inv + L2_inv * Math.Cos(Teta2_inv1 * Phi / 180))) * 180 / Phi;  // Find Teta 1
+            if (x2_inv < 0)
+                Teta1_inv1 = 180 + Teta1_inv1;
 
             // Find position of joint 1
             x1_inv1 = L1_inv * Math.Cos(Teta1_inv1 * Phi / 180);  // Find x1
             y1_inv1 = L1_inv * Math.Sin(Teta1_inv1 * Phi / 180);  // Find y1
 
-            // Show the value on the text box
+            // Show value on the text box
             textBox4.Text = Math.Round(Teta1_inv1, 3).ToString();
             textBox3.Text = Math.Round(Teta2_inv1, 3).ToString();
 
@@ -202,12 +204,14 @@ namespace Simulator_robot_planar_2_DoF
             // >>> The second probability of Teta  (P2) <<<
             Teta2_inv2 = -(Math.Acos(round((xy - L1_inv * L1_inv - L2_inv * L2_inv) / (2 * L1_inv * L2_inv))) * 180 / Phi); // Find Teta 2 using cosinus law
             Teta1_inv2 = Math.Atan(y2_inv / x2_inv) * 180 / Phi - Math.Atan(L2_inv * Math.Sin(Teta2_inv2 * Phi / 180) / (L1_inv + L2_inv * Math.Cos(Teta2_inv2 * Phi / 180))) * 180 / Phi;  // Find Teta 1
+            if (x2_inv < 0)
+                Teta1_inv2 = 180 + Teta1_inv2;
 
             // Find position of joint 1
             x1_inv2 = L1_inv * Math.Cos(Teta1_inv2 * Phi / 180);  // Find x1
             y1_inv2 = L1_inv * Math.Sin(Teta1_inv2 * Phi / 180);  // Find y1
 
-            // Show the value on the text box
+            // Show value on the text box
             textBox8.Text = Math.Round(Teta1_inv2, 3).ToString();
             textBox9.Text = Math.Round(Teta2_inv2, 3).ToString();
 

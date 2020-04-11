@@ -7,3 +7,4 @@ E:\PENS\semester 4\praktikum\robotika\simulator robot planar\2 Axis Arm Robot Si
 E:\PENS\semester 4\praktikum\robotika\simulator robot planar\2 Axis Arm Robot Simulator\Simulator robot planar 2 DoF\obj\Debug\2 Axis Arm Robot Simulator.csproj.CoreCompileInputs.cache
 E:\PENS\semester 4\praktikum\robotika\simulator robot planar\2 Axis Arm Robot Simulator\Simulator robot planar 2 DoF\obj\Debug\Simulator robot planar 2 DoF.exe
 E:\PENS\semester 4\praktikum\robotika\simulator robot planar\2 Axis Arm Robot Simulator\Simulator robot planar 2 DoF\obj\Debug\Simulator robot planar 2 DoF.pdb
+E:\PENS\semester 4\praktikum\robotika\simulator robot planar\2 Axis Arm Robot Simulator\Simulator robot planar 2 DoF\obj\Debug\2 Axis Arm Robot Simulator.csprojAssemblyReference.cache
